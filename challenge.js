@@ -44,7 +44,6 @@ function calc(list, email) {
             rest--;
         });
     }
-
     return result;
 }
 
@@ -71,9 +70,17 @@ const generatingEmailList = (num) => {
 };
 
 const generatingProductList = (items, price, quantity) => {
-    //check if the set number of items are valid
+    //check if valid params
     if (items <= 0) {
         console.error("Please enter a valid number of items");
+        return [];
+    }
+    if (price <= 0) {
+        console.error("Please enter a valid price");
+        return [];
+    }
+    if (quantity <= 0) {
+        console.error("Please enter a valid quantity");
         return [];
     }
 
@@ -102,8 +109,8 @@ const generatingProductList = (items, price, quantity) => {
 // console.log(calc(productList, generatingEmailList(-10)));
 // console.log(generatingEmailList(-10));
 
-const arg1 = generatingProductList(3, 1000, 5);
+const arg1 = generatingProductList(3, 100, 9);
 
 const arg2 = generatingEmailList(1);
 
-console.log(calc(arg1, arg2));
+console.log(calc(arg1, emailList));
